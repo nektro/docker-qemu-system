@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        qemuArch:
+          - x86_64
+          - i386
+
+          # - aarch64
+          # - alpha
+          # - arm
+          # - avr
+          # - cris
+          # - hppa
+          # - m68k
+          # - microblaze
+          # - microblazeel
+          # - mips
+          # - mips64
+          # - mips64el
+          # - mipsel
+          # - nios2
+          # - or1k
+          # - ppc
+          # - ppc64
+          # - riscv32
+          # - riscv64
+          # - rx
+          # - s390x
+          # - sh4
+          # - sh4eb
+          # - sparc
+          # - sparc64
+          # - tricore
+          # - xtensa
+          # - xtensaeb
+
+    steps:
+      # debug info about this machine
+      - run: uname -a
+      - run: free
+      - run: env
+      - run: mount
+      - run: lscpu
+      - run: lsmem
+      - run: lsblk
+      - run: lspci
+      - run: lsipc
+      - run: whoami
+
+      # Get the code
+      - uses: actions/checkout@v2
+
+      # Publish
+      - uses: docker/build-push-action@v1
+        with:
+          username: nektro
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          repository: nektro/qemu-system
+          tags: ${{ matrix.qemuArch }}
