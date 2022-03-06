@@ -13,8 +13,8 @@ jobs:
         qemuArch:
           - x86_64
           - i386
+          - aarch64
 
-          # - aarch64
           # - alpha
           # - arm
           # - avr
