@@ -14,9 +14,9 @@ jobs:
           - x86_64
           - i386
           - aarch64
+          - arm
 
           # - alpha
-          # - arm
           # - avr
           # - cris
           # - hppa
