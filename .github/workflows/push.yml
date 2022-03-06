@@ -66,3 +66,4 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
           repository: nektro/qemu-system
           tags: ${{ matrix.qemuArch }}
+          build_args: arch=${{ matrix.qemuArch }}
