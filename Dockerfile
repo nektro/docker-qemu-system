@@ -5,8 +5,10 @@ RUN apk add qemu-system-${arch}
 VOLUME [ "/images" ]
 EXPOSE 2222
 
-ENV arch=${arch}
-ENV os=alpine
+RUN apk add libvirt-daemon py-libvirt py-libxml2
+RUN rc-update add libvirtd
+RUN rc-service libvirtd start
+
 ENV image=/images/${os}.${arch}.qcow2
 ENV hdd=/data/hdd.qcow2
 ENV cpu=max
