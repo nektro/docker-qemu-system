@@ -5,7 +5,7 @@ RUN apk add qemu-system-${arch}
 VOLUME [ "/images" ]
 EXPOSE 2222
 
-RUN apk add libvirt-daemon py-libvirt py-libxml2
+RUN apk add libvirt-daemon
 RUN rc-update add libvirtd
 RUN rc-service libvirtd start
 
