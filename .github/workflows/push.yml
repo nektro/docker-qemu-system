@@ -12,36 +12,6 @@ jobs:
       matrix:
         qemuArch:
           - x86_64
-          - i386
-          - aarch64
-          - arm
-
-          # - alpha
-          # - avr
-          # - cris
-          # - hppa
-          # - m68k
-          # - microblaze
-          # - microblazeel
-          # - mips
-          # - mips64
-          # - mips64el
-          # - mipsel
-          # - nios2
-          # - or1k
-          # - ppc
-          # - ppc64
-          # - riscv32
-          # - riscv64
-          # - rx
-          # - s390x
-          # - sh4
-          # - sh4eb
-          # - sparc
-          # - sparc64
-          # - tricore
-          # - xtensa
-          # - xtensaeb
 
     steps:
       # Get the code
