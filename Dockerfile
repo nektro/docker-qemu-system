@@ -8,6 +8,7 @@ EXPOSE 2222
 RUN apk add libvirt-daemon openrc
 RUN rc-update add libvirtd
 
+ENV arch=${arch}
 ENV image=/images/${os}.${arch}.qcow2
 ENV hdd=/data/hdd.qcow2
 ENV cpu=max
